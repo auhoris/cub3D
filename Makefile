@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/23 18:13:38 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/04 19:41:49 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/04 20:48:46 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJ		= $(SRCS:.c=.o)
 OBJS		= $(addprefix $(OBJRID), $(OBJ))
 
 
-CFLAGS		= -Wall -Werror -Wextra -g
+CFLAGS		= -Wall -Werror -Wextra
 #CFLAGS		= -Wall -Werror -Wextra -g -fsanitize=address
 MLX_FLAGS	= -framework OpenGL -framework AppKit
 OPTFLAGS	= -O3
