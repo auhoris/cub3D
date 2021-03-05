@@ -1,6 +1,7 @@
+R -55 -55
 
-F 0 ,      0  ,      0
 C 52,        213         ,235
+F 102 ,      130  ,      150
 
 NO      ./textures/WALL0.xpm
 SO ./textures/WALL14.xpm

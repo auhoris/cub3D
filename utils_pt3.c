@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:16:07 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 17:06:33 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/05 21:39:20 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ int		make_color(t_config *all, char *line)
 	int	j;
 
 	i = -1;
-	j = -1;
-	while (line[++i] != '\0')
+	j = 0;
+	while (line[++i] != '\0' && j < 3)
 	{
 		if (in_set(DIGITS, line[i]) && line[i] != '\0')
 		{
-			rgb[++j] = ft_atoi(&line[i]);
+			rgb[j] = ft_atoi(&line[i]);
 			while (in_set(DIGITS, line[i]))
 				i++;
+			j++;
 		}
 	}
 	j = -1;

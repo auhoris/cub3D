@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:06:18 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 18:31:22 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/05 20:40:45 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ typedef struct	s_player
 
 typedef struct	s_config
 {
+	float		d;
 	int		max_l;
 	int		save;
 	int		screen_width;

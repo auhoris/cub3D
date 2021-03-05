@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:17:52 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 17:23:48 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/05 20:53:47 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ void	draw_wall(t_config *all,
 	int		end;
 	float	res_y;
 
-	res_y = (float)(all->args->res_y > all->args->res_x
-			? all->args->res_x : all->args->res_y);
+	res_y = (float)all->args->res_y;
 	start = (res_y / 2 - h / 2) < 0 ? 0 : (res_y / 2 - h / 2);
 	end = (res_y / 2 + h / 2) > all->args->res_y
 		? all->args->res_y : (res_y / 2 + h / 2);

@@ -6,11 +6,12 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 15:19:15 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/04 18:19:15 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/05 21:55:07 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <math.h>
 
 static void	init_window(t_config *all)
 {
@@ -35,6 +36,7 @@ void		start_drawing(t_config *all)
 	win->addres = mlx_get_data_addr(win->img,
 			&win->bbp, &win->line_length, &win->endian);
 	all->z_buffer = malloc(sizeof(*all->z_buffer) * (all->args->res_x + 1));
+	all->d = ((float)all->args->res_x / 2) * (1 / tanf(FOV / 2));
 	wall[0] = make_image(all, all->args->so_text);
 	wall[1] = make_image(all, all->args->no_text);
 	wall[2] = make_image(all, all->args->we_text);

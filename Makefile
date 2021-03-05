@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/23 18:13:38 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/04 20:48:46 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/05 21:58:03 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ LIBFTD		= libft/
 MLXD		= mlx/
 GNLD		= get_next_line/
 OBJRID		= objs/
+DIRS		= $(LIBFTD) $(GNLD)
 
 CUB_H		= cub3d.h
 LIBS		= $(GNLD)$(GNL_A) $(MLXD)$(MLX_A) $(LIBFTD)$(LIBFT_A)
@@ -74,6 +75,8 @@ fclean:	clean
 	@make -C $(LIBFTD) fclean
 	@make -C $(GNLD) fclean
 
+norm:
+	norminette *.c $(DIRS)*.c
 re:	fclean all
 
 .PHONY:	fclean all re clean

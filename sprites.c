@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:53:56 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 18:48:11 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/05 20:47:49 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void			prep_sprites(t_config *all)
 		obj_angle = fix_angle(obj_angle, -PI, PI);
 		if (fabsf(obj_angle) < (FOV / 2) && arr[i].dist > 0.1f)
 		{
-			arr[i].s_h = all->args->res_y / arr[i].dist;
+			arr[i].s_h = all->d / arr[i].dist;
 			arr[i].s_w = arr[i].s_h /
 				((float)arr[i].img.img_height / (float)arr[i].img.img_width);
 			draw_sprites(all, arr[i], obj_angle);
