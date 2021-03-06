@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/23 18:13:38 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/05 21:58:03 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/06 14:40:17 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,9 +60,10 @@ $(NAME): $(OBJS) $(CUB_H)
 	@make -C $(GNLD)
 	gcc $(CFLAGS) $(OBJS) $(LIBS) $(MLX_FLAGS) -o $(NAME)
 
-$(OBJRID)%.o: %.c
+
+$(OBJRID)%.o: %.c $(CUB_H)
 	@mkdir -p $(OBJRID)
-	gcc $(OPTFLAGS) -c $< -o $@ -I$(CUB_H)
+	gcc $(OPTFLAGS) -MMD -c $< -o $@
 
 clean:
 	@rm -rf $(OBJRID)
