@@ -6,12 +6,13 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 15:19:15 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/06 13:37:32 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/09 21:36:23 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <math.h>
+#include <stdlib.h>
 
 static void	init_window(t_config *all)
 {
@@ -50,9 +51,36 @@ void		start_drawing(t_config *all)
 	}
 }
 
+t_sprite	*parse_sprites(t_config *all)
+{
+	t_sprite	*arr;
+	t_point		p;
+
+	arr = NULL;
+	if ((arr = malloc(sizeof(*arr) * all->sprites)) == NULL)
+		return (NULL);
+	p.y = -1;
+	all->sprites = 0;
+	while (all->map[++p.y])
+	{
+		p.x = -1;
+		while (all->map[p.y][++p.x])
+		{
+			if (all->map[p.y][p.x] == '2')
+			{
+				arr[all->sprites].x = p.x + 0.5;
+				arr[all->sprites].y = p.y + 0.5;
+				all->sprites++;
+			}
+		}
+	}
+	return (arr);
+}
+
 void		start(t_config *all, char *argv)
 {
 	start_parsing(argv, all);
+	all->spr = parse_sprites(all);
 	init_window(all);
 	start_drawing(all);
 	if (all->save == 1)

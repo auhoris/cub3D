@@ -6,13 +6,14 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:53:56 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/06 14:15:02 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/09 21:52:08 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 static t_sprite	*sort_sprites(t_config *all, t_sprite *spr)
 {
@@ -35,15 +36,12 @@ static t_sprite	*sort_sprites(t_config *all, t_sprite *spr)
 	return (spr);
 }
 
-static t_sprite	*set_sprites(t_config *all, t_floatp pl)
+void	set_sprites(t_config *all, t_floatp pl)
 {
-	t_sprite	*a;
 	int			x;
 	int			y;
 	int			i;
 
-	if (!(a = malloc(sizeof(*a) * (all->sprites + 1))))
-		return (NULL);
 	y = -1;
 	i = 0;
 	while (all->map[++y])
@@ -53,15 +51,12 @@ static t_sprite	*set_sprites(t_config *all, t_floatp pl)
 		{
 			if (all->map[y][x] == '2')
 			{
-				a[i].x = x + 0.5;
-				a[i].y = y + 0.5;
-				a[i].img = make_image(all, all->args->sprite);
-				a[i].dist = kostil(a[i].x, a[i].y, pl);
+				all->spr[i].img= make_image(all, all->args->sprite);
+				all->spr[i].dist = kostil(all->spr[i].x, all->spr[i].y, pl);
 				i++;
 			}
 		}
 	}
-	return (a);
 }
 
 static void		handle_drawing(t_config *all,
@@ -104,6 +99,42 @@ static void		draw_sprites(t_config *all, t_sprite arr, float obj_angle)
 		handle_drawing(all, arr, mid_s, res_y);
 }
 
+void	visible(t_config *all, t_sprite *arr, t_floatp pl)
+{
+	int	i;
+	int	c;
+	int	visible;
+	float	obj_angle;
+	t_sprite	*spr_vis;
+
+	i = -1;
+	visible = 0;
+	while (++i < all->sprites)
+	{
+		obj_angle = atan2f(sinf(all->player->dir), cosf(all->player->dir))
+			- atan2f(arr[i].y - pl.y, arr[i].x - pl.x);
+		obj_angle = fix_angle(obj_angle, -PI, PI);
+		if (fabsf(obj_angle) < (FOV / 2))
+		{
+			arr[i].visible = 1;
+			arr[i].dist = kostil(arr[i].x, arr[i].y, pl);
+			visible++;
+		}
+	}
+	spr_vis = malloc(sizeof(*spr_vis) * (visible + 1));
+	i = -1;
+	c = 0;
+	while (++i < all->sprites)
+	{
+		if (arr[i].visible)
+		{
+			spr_vis[c] = arr[i];
+			c++;
+		}
+	}
+	quicksort(spr_vis, 0, c);
+}
+
 void			prep_sprites(t_config *all)
 {
 	t_sprite	*arr;
@@ -113,8 +144,11 @@ void			prep_sprites(t_config *all)
 
 	pl.x = all->player->x / SCALE;
 	pl.y = all->player->y / SCALE;
-	arr = set_sprites(all, pl);
-	arr = sort_sprites(all, arr);
+	set_sprites(all, pl);
+	arr = all->spr;
+	/*arr = sort_sprites(all, arr);*/
+	/*visible(all, arr, pl);*/
+	quicksort(arr, 0, all->sprites);
 	i = -1;
 	while (++i < all->sprites)
 	{
@@ -129,6 +163,6 @@ void			prep_sprites(t_config *all)
 			draw_sprites(all, arr[i], obj_angle);
 		}
 	}
-	ft_free(arr);
+	/*ft_free(arr);*/
 	ft_free(all->z_buffer);
 }

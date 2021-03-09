@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:16:07 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 17:53:58 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/09 19:00:39 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_floatp	horizontal_hit(t_config *all, t_floatp fp, float pl_a)
 	}
 	hit.x = fp.x + dir * fabsf((float)y - fp.y) / tanf(pl_a);
 	hit.y = fp.y + dir * fabsf((float)y - fp.y);
-	while ((int)hit.x < ft_strlen(all->map[(int)fabsf(hit.y)])
+	while (hit.y > 0.0 && (int)hit.x < ft_strlen(all->map[(int)fabsf(hit.y)])
 			&& (int)hit.x > first_one(all->map[(int)(hit.y)]))
 	{
 		if (all->map[(int)(hit.y + dir * 0.00001)][(int)hit.x] == '1')
@@ -70,7 +70,7 @@ t_floatp	vertical_hit(t_config *all, t_floatp fp, float pl_a)
 	}
 	hit.x = fp.x + dir * fabsf((float)x - fp.x);
 	hit.y = fp.y + dir * fabsf((float)x - fp.x) * tanf(pl_a);
-	while ((int)hit.y > 0 && (int)hit.y < all->map_h)
+	while (hit.x > 0.0 && (int)hit.y > 0 && (int)hit.y < all->map_h)
 	{
 		if (all->map[(int)(hit.y)][(int)(hit.x + dir * 0.00001)] == '1')
 			return (hit);

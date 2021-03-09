@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:06:18 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 14:14:09 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/09 20:49:43 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@
 # define TURN_LEFT_KEY 123
 # define TURN_RIGHT_KEY 124
 
-# define DIV 0.3
+# define DIV 0.2
 # define MULT 1 / DIV
 
 # define PI 3.14159265359
@@ -86,6 +86,7 @@ typedef struct s_text
 
 typedef struct s_sprite
 {
+	int	visible;
 	float	x;
 	float	y;
 	float	dist;
@@ -142,6 +143,7 @@ typedef struct	s_player
 
 typedef struct	s_config
 {
+	t_sprite	*spr;
 	float		d;
 	int		max_l;
 	int		save;
@@ -207,6 +209,7 @@ void	init_player(t_player *player);
 /*
 **	UTILS
 */
+void	quicksort(t_sprite *arr, int low, int high);
 void	free_all(t_config *all);
 int	set_width(t_config *all);
 int	ulb(t_config *all, int x, int flag);

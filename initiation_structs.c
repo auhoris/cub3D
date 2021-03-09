@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:17:42 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/05 20:40:52 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/09 20:49:55 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	init_player(t_player *player)
 
 void	init_all(t_config *all)
 {
+	all->spr = NULL;
 	all->d = 0;
 	all->max_l = 0;
 	all->save = 0;

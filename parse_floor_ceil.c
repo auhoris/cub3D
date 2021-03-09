@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:06:20 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/05 21:34:24 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/09 17:20:16 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,11 @@ static int	valid_line(char *line, char id)
 	int	c_cnt;
 
 	i = -1;
+	while (line[++i] != id)
+		if (in_set("0123456789", line[i]) || line[i] == ',')
+			return (ERROR);
 	while (line[++i] != '\0')
-		if (!in_set(" 0123456789,", line[i]) && line[i] != id)
+		if (!in_set(" 0123456789,", line[i]))
 			return (ERROR);
 	i = -1;
 	c_cnt = 0;

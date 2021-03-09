@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:48:02 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 18:31:12 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/09 20:49:24 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	moving_up_down(int keycode, t_config *config)
 	t_floatp	st;
 	t_floatp	pl;
 
-	st.x = cos(config->player->dir) * 0.3;
-	st.y = sin(config->player->dir) * 0.3;
+	st.x = cos(config->player->dir) * DIV;
+	st.y = sin(config->player->dir) * DIV;
 	pl.x = config->player->x / SCALE;
 	pl.y = config->player->y / SCALE;
 	if (keycode == KEY_W)
@@ -42,8 +42,8 @@ void	moving_left_right(int keycode, t_config *all)
 	t_floatp	st;
 	t_floatp	pl;
 
-	st.x = cos(all->player->dir - PI_2) * 0.3;
-	st.y = sin(all->player->dir - PI_2) * 0.3;
+	st.x = cos(all->player->dir - PI_2) * DIV;
+	st.y = sin(all->player->dir - PI_2) * DIV;
 	pl.x = all->player->x / SCALE;
 	pl.y = all->player->y / SCALE;
 	if (keycode == KEY_A)
@@ -62,24 +62,24 @@ void	moving_left_right(int keycode, t_config *all)
 	}
 }
 
-int		moving(int keycode, t_config *config)
+int		moving(int keycode, t_config *all)
 {
 	if (keycode == ESC_KEY)
 		exit(0);
 	if (keycode == TURN_LEFT_KEY)
 	{
-		config->player->dir -= 0.1;
-		if (config->player->dir < 0)
-			config->player->dir += TWO_PI;
+		all->player->dir -= 0.1;
+		if (all->player->dir < 0)
+			all->player->dir += TWO_PI;
 	}
 	if (keycode == TURN_RIGHT_KEY)
 	{
-		config->player->dir += 0.1;
-		if (config->player->dir > TWO_PI)
-			config->player->dir -= TWO_PI;
+		all->player->dir += 0.1;
+		if (all->player->dir > TWO_PI)
+			all->player->dir -= TWO_PI;
 	}
-	moving_up_down(keycode, config);
-	moving_left_right(keycode, config);
-	start_drawing(config);
+	moving_up_down(keycode, all);
+	moving_left_right(keycode, all);
+	start_drawing(all);
 	return (0);
 }

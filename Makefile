@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/23 18:13:38 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/09 14:25:02 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/09 20:52:54 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS		= main.c take_content.c parsing_parameters.c \
 		  print_error.c parse_map.c make_image.c \
 		  sprites.c hits.c mouse.c \
 		  utils_pt3.c make_map.c make_bmp.c \
-		  start.c precalc_drawing.c map_utils.c
+		  start.c precalc_drawing.c map_utils.c \
+		  quicksort.c
 
 
 #BONUS_S		= movin_bonus.c
@@ -31,8 +32,8 @@ OBJ		= $(SRCS:.c=.o)
 OBJS		= $(addprefix $(OBJRID), $(OBJ))
 
 
-CFLAGS		= -Wall -Werror -Wextra
-#CFLAGS		= -Wall -Werror -Wextra -g -fsanitize=address
+#CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra -g -fsanitize=address
 MLX_FLAGS	= -framework OpenGL -framework AppKit
 OPTFLAGS	= -O3
 LEAKFLAGS	= -ggdb3 -std=c11
@@ -55,7 +56,7 @@ all:	$(NAME)
 
 $(NAME): $(OBJS) $(CUB_H)
 	@make -C $(MLXD)
-	@make -C $(LIBFTD) bonus
+	@make -C $(LIBFTD)
 	@make -C $(GNLD)
 	gcc $(CFLAGS) $(OBJS) $(LIBS) $(MLX_FLAGS) -o $(NAME)
 

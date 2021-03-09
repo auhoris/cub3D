@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/26 13:39:35 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/04 18:13:21 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/09 20:02:38 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,4 +45,4 @@ re: fclean all
 
 .PHONY: all fclean clean re
 
-.SILENT: all fclean re clean $(NAME) $(OBJDIR)%.o $(OBJS)
+#.SILENT: all fclean re clean $(NAME) $(OBJDIR)%.o $(OBJS)

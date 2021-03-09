@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:09:48 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 17:10:52 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/09 17:28:56 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,6 @@ int		validate_symbols(t_config *all)
 
 int		flood_fill(t_config *all, char **map, int x, int y)
 {
-	if ((x == rbd(all, y, 0) || x == rbd(all, y, 1)) && map[y][x] != '1')
-		return (ERROR);
-	if ((y == 0 || y == all->map_h) && map[y][x] != '1')
-		return (ERROR);
 	if (map[y][x] != '1' && (map[y][x] == '0' || in_set("NESW", map[y][x])))
 	{
 		map[y][x] = '1';
@@ -92,7 +88,7 @@ int		check_closed(t_config *all, char **copy)
 		x = -1;
 		while (copy[y][++x])
 		{
-			if (copy[y][x] == '0')
+			if (copy[y][x] == '0' || copy[y][x] == '2')
 			{
 				if (!in_set("012NESW", copy[y][x + 1]))
 					return (ERROR);
@@ -116,7 +112,7 @@ int		parse_map(t_config *all)
 	if (validate_symbols(all) != OK)
 		return (ERROR);
 	all->map_h = all->size - MAIN_ARGC;
-	all->map_w = set_width(all);
+	all->map_w = all->max_l;
 	if ((e_code = set_playerpos(all)) != OK)
 		return (ERROR);
 	if ((copy = map_copy(all)) == NULL)

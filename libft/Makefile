@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 15:29:16 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/04 18:16:01 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/09 19:48:21 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,4 +69,4 @@ re: fclean all
 
 .PHONY:	fclean clean re all bonus 
 
-.SILENT: all re clean fclean bonus $(NAME) $(OBJS) $(OBJS_B)
+#.SILENT: all re clean fclean bonus $(NAME) $(OBJS) $(OBJS_B)
