@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:06:18 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/06 14:13:05 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/09 14:14:09 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,7 @@ void	init_player(t_player *player);
 /*
 **	UTILS
 */
+void	free_all(t_config *all);
 int	set_width(t_config *all);
 int	ulb(t_config *all, int x, int flag);
 int	rbd(t_config *all, int y, int flag);
@@ -230,6 +231,6 @@ int	array_digits(char **array);
 void	free_split(char **split);
 void	ft_free(void *ptr);
 void	ft_exit(char *str);
-
 float	reverse_sqroot(float number);
+
 #endif

@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/23 18:13:38 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/06 14:40:17 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/09 14:25:02 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS		= main.c take_content.c parsing_parameters.c \
 		  start.c precalc_drawing.c map_utils.c
 
 
-BONUS_S		= movin_bonus.c
+#BONUS_S		= movin_bonus.c
 
 
 OBJ		= $(SRCS:.c=.o)
@@ -47,7 +47,6 @@ LIBFTD		= libft/
 MLXD		= mlx/
 GNLD		= get_next_line/
 OBJRID		= objs/
-DIRS		= $(LIBFTD) $(GNLD)
 
 CUB_H		= cub3d.h
 LIBS		= $(GNLD)$(GNL_A) $(MLXD)$(MLX_A) $(LIBFTD)$(LIBFT_A)
@@ -77,7 +76,7 @@ fclean:	clean
 	@make -C $(GNLD) fclean
 
 norm:
-	norminette *.c $(DIRS)*.c
+	norminette *.c $(LIBFTD)*.c $(GNLD)*.c
 re:	fclean all
 
 .PHONY:	fclean all re clean
