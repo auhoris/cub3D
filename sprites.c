@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:53:56 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/10 17:13:17 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 20:00:25 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void		set_distance(t_config *all, t_floatp pl)
 	int	i;
 
 	i = -1;
+	printf("all->sprites = %d\n", all->sprites);
 	while (++i < all->sprites)
 	{
 		all->spr[i].dist = fabsf((all->spr[i].x - pl.x) * cosf(all->player->dir)

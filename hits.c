@@ -6,14 +6,14 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:16:07 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/10 14:08:08 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 19:57:50 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <math.h>
 
-static int	first_one(char *str)
+int			first_one(char *str)
 {
 	int	i;
 

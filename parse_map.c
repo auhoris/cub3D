@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:09:48 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/10 12:32:05 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 19:57:27 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <sys/_types/_errno_t.h>
 
-int		validate_symbols(t_config *all)
+static int		validate_symbols(t_config *all)
 {
 	int	x;
 	int	y;
@@ -38,7 +38,7 @@ int		validate_symbols(t_config *all)
 	return (OK);
 }
 
-int		flood_fill(t_config *all, char **map, int x, int y)
+static int		flood_fill(t_config *all, char **map, int x, int y)
 {
 	if (map[y][x] != '1' && (map[y][x] == '0' || in_set("NESW", map[y][x])))
 	{
@@ -57,7 +57,7 @@ int		flood_fill(t_config *all, char **map, int x, int y)
 	return (OK);
 }
 
-char	**map_copy(t_config *all)
+static char		**map_copy(t_config *all)
 {
 	int		i;
 	char	**copy;
@@ -77,7 +77,7 @@ char	**map_copy(t_config *all)
 	return (copy);
 }
 
-int		check_closed(t_config *all, char **copy)
+static int		check_closed(t_config *all, char **copy)
 {
 	int	x;
 	int	y;
@@ -90,13 +90,14 @@ int		check_closed(t_config *all, char **copy)
 		{
 			if (copy[y][x] == '0' || copy[y][x] == '2')
 			{
-				if (!in_set("012NESW", copy[y][x + 1]))
+				if (y == all->map_h - 1 || y == 0 ||
+						x == ft_strlen(all->map[y]) - 1 || x == 0)
 					return (ERROR);
-				if (!in_set("012NESW", copy[y][x - 1]))
+				if (!in_set("012NESW", copy[y][x + 1])
+						|| !in_set("012NESW", copy[y][x - 1]))
 					return (ERROR);
-				if (!in_set("012NESW", copy[y + 1][x]))
-					return (ERROR);
-				if (!in_set("012NESW", copy[y - 1][x]))
+				if (!in_set("012NESW", copy[y + 1][x])
+						|| !in_set("012NESW", copy[y - 1][x]))
 					return (ERROR);
 			}
 		}
@@ -104,7 +105,7 @@ int		check_closed(t_config *all, char **copy)
 	return (OK);
 }
 
-int		parse_map(t_config *all)
+int				parse_map(t_config *all)
 {
 	int		e_code;
 	char	**copy;
@@ -117,9 +118,9 @@ int		parse_map(t_config *all)
 		return (ERROR);
 	if ((copy = map_copy(all)) == NULL)
 		return (ERROR);
-	if (check_closed(all, copy) != OK ||
-			(e_code = flood_fill(all, copy, (int)all->player->x
-					/ SCALE, (int)all->player->y / SCALE)) != OK)
+	if (check_closed(all, copy) != OK || (e_code = flood_fill(all, copy,
+					(int)all->player->x / SCALE,
+					(int)all->player->y / SCALE)) != OK)
 	{
 		free_split(copy);
 		return (ERROR);

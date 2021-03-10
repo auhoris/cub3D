@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:06:18 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/10 17:05:36 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 19:38:15 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,6 +206,7 @@ void	init_player(t_player *player);
 /*
 **	UTILS
 */
+int	first_one(char *str);
 void	quicksort(t_sprite *arr, int low, int high);
 void	free_all(t_config *all);
 int	set_width(t_config *all);
