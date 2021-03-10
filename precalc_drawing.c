@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 15:22:21 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/06 13:51:33 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 17:07:33 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,9 @@ static float	calc_distance(t_config *all,
 		+ (ver_hit.y - fp.y) * sinf(all->player->dir);
 	dist_h = (hor_hit.x - fp.x) * cosf(all->player->dir)
 		+ (hor_hit.y - fp.y) * sinf(all->player->dir);
-	if (dist_h < dist_v)
-	{
-		all->inter = hor_hit;
-		all->hit = 0;
-		return (dist_h);
-	}
-	else
-	{
-		all->inter = ver_hit;
-		all->hit = 1;
-		return (dist_v);
-	}
+	all->inter = dist_h < dist_v ? hor_hit : ver_hit;
+	all->hit = dist_h < dist_v ? 0 : 1;
+	return (dist_h < dist_v ? dist_h : dist_v);
 }
 
 static void		handle_calc_wall(t_config *all, int x, t_win wall[])

@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:16:07 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 19:00:39 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 14:08:08 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,8 @@ t_floatp	horizontal_hit(t_config *all, t_floatp fp, float pl_a)
 	int			y;
 	int			dir;
 
-	if (sinf(pl_a) > 0)
-	{
-		y = (int)ceilf(fp.y);
-		dir = 1;
-	}
-	else
-	{
-		y = (int)floorf(fp.y);
-		dir = -1;
-	}
+	y = sinf(pl_a) > 0 ? (int)ceilf(fp.y) : (int)floorf(fp.y);
+	dir = sinf(pl_a) > 0 ? 1 : -1;
 	hit.x = fp.x + dir * fabsf((float)y - fp.y) / tanf(pl_a);
 	hit.y = fp.y + dir * fabsf((float)y - fp.y);
 	while (hit.y > 0.0 && (int)hit.x < ft_strlen(all->map[(int)fabsf(hit.y)])
@@ -58,16 +50,8 @@ t_floatp	vertical_hit(t_config *all, t_floatp fp, float pl_a)
 	int			x;
 	float		dir;
 
-	if (cosf(pl_a) > 0)
-	{
-		x = (int)ceilf(fp.x);
-		dir = 1.0f;
-	}
-	else
-	{
-		x = (int)floorf(fp.x);
-		dir = -1.0f;
-	}
+	x = cosf(pl_a) > 0 ? (int)ceilf(fp.x) : (int)floorf(fp.x);
+	dir = cosf(pl_a) > 0 ? 1 : -1;
 	hit.x = fp.x + dir * fabsf((float)x - fp.x);
 	hit.y = fp.y + dir * fabsf((float)x - fp.x) * tanf(pl_a);
 	while (hit.x > 0.0 && (int)hit.y > 0 && (int)hit.y < all->map_h)

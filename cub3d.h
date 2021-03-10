@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:06:18 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 20:49:43 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 17:05:36 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@
 # define TURN_LEFT_KEY 123
 # define TURN_RIGHT_KEY 124
 
-# define DIV 0.2
+# define DIV 0.3
 # define MULT 1 / DIV
 
 # define PI 3.14159265359
@@ -86,11 +86,9 @@ typedef struct s_text
 
 typedef struct s_sprite
 {
-	int	visible;
 	float	x;
 	float	y;
 	float	dist;
-	t_win	img;
 	float	s_h;
 	float	s_w;
 	float	s_x;
@@ -98,6 +96,7 @@ typedef struct s_sprite
 	float	s_off;
 	float	s_step;
 }		t_sprite;
+
 /*
 **	Структура точки
 */
@@ -112,7 +111,6 @@ typedef struct	s_point
 	int	x;
 	int	y;
 }		t_point;
-
 
 /*
 **	Структура конфига
@@ -137,12 +135,11 @@ typedef struct	s_player
 	float	init_x;
 	float	init_y;
 	float	dir;
-	float	fov_start;
-	float	fov_end;
 }		t_player;
 
 typedef struct	s_config
 {
+	t_win		wall[5];
 	t_sprite	*spr;
 	float		d;
 	int		max_l;

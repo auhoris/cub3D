@@ -6,34 +6,34 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:48:02 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 20:49:24 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 17:04:47 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	moving_up_down(int keycode, t_config *config)
+void	moving_up_down(int keycode, t_config *all)
 {
 	t_floatp	st;
 	t_floatp	pl;
 
-	st.x = cos(config->player->dir) * DIV;
-	st.y = sin(config->player->dir) * DIV;
-	pl.x = config->player->x / SCALE;
-	pl.y = config->player->y / SCALE;
+	st.x = cos(all->player->dir) * DIV;
+	st.y = sin(all->player->dir) * DIV;
+	pl.x = all->player->x / SCALE;
+	pl.y = all->player->y / SCALE;
 	if (keycode == KEY_W)
 	{
-		if (config->map[(int)(pl.y + st.y)][(int)pl.x] != '1')
-			config->player->y += st.y * MULT;
-		if (config->map[(int)pl.y][(int)(pl.x + st.x)] != '1')
-			config->player->x += st.x * MULT;
+		if (all->map[(int)(pl.y + st.y)][(int)pl.x] != '1')
+			all->player->y += st.y * MULT;
+		if (all->map[(int)pl.y][(int)(pl.x + st.x)] != '1')
+			all->player->x += st.x * MULT;
 	}
 	if (keycode == KEY_S)
 	{
-		if (config->map[(int)(pl.y - st.y)][(int)pl.x] != '1')
-			config->player->y -= st.y * MULT;
-		if (config->map[(int)pl.y][(int)(pl.x - st.x)] != '1')
-			config->player->x -= st.x * MULT;
+		if (all->map[(int)(pl.y - st.y)][(int)pl.x] != '1')
+			all->player->y -= st.y * MULT;
+		if (all->map[(int)pl.y][(int)(pl.x - st.x)] != '1')
+			all->player->x -= st.x * MULT;
 	}
 }
 

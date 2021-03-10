@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:09:48 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 17:28:56 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 12:32:05 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,9 @@ int		parse_map(t_config *all)
 		return (ERROR);
 	if ((copy = map_copy(all)) == NULL)
 		return (ERROR);
-	if ((e_code = flood_fill(all, copy, (int)all->player->x
-					/ SCALE, (int)all->player->y / SCALE)) != OK
-		|| check_closed(all, copy) != OK)
+	if (check_closed(all, copy) != OK ||
+			(e_code = flood_fill(all, copy, (int)all->player->x
+					/ SCALE, (int)all->player->y / SCALE)) != OK)
 	{
 		free_split(copy);
 		return (ERROR);

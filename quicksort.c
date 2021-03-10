@@ -6,11 +6,12 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 17:48:18 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 18:38:29 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 16:32:23 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <stdlib.h>
 
 void	swap(t_sprite *a, t_sprite *b)
 {
@@ -21,11 +22,11 @@ void	swap(t_sprite *a, t_sprite *b)
 	*b = temp;
 }
 
-int	partition(t_sprite *arr, int low, int high)
+int		partition(t_sprite *arr, int low, int high)
 {
 	float	pivot;
-	int	j;
-	int	i;
+	int		j;
+	int		i;
 
 	pivot = arr[high].dist;
 	i = low - 1;
@@ -46,10 +47,18 @@ void	quicksort(t_sprite *arr, int low, int high)
 {
 	int	pi;
 
-	if (low < high)
+	while (low < high)
 	{
 		pi = partition(arr, low, high);
-		quicksort(arr, low, pi - 1);
-		quicksort(arr, pi + 1, high);
+		if (pi - low < high - pi)
+		{
+			quicksort(arr, low, pi - 1);
+			low = pi + 1;
+		}
+		else
+		{
+			quicksort(arr, pi + 1, high);
+			high = pi - 1;
+		}
 	}
 }

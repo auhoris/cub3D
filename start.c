@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 15:19:15 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 21:36:23 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/10 16:37:45 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	init_window(t_config *all)
 void		start_drawing(t_config *all)
 {
 	t_win	*win;
+	t_win	sprite;
 	t_win	wall[4];
 
 	win = all->win;
@@ -38,11 +39,7 @@ void		start_drawing(t_config *all)
 			&win->bbp, &win->line_length, &win->endian);
 	all->z_buffer = malloc(sizeof(*all->z_buffer) * (all->args->res_x + 1));
 	all->d = ((float)all->args->res_x / 2) * (1 / tanf(FOV / 2));
-	wall[0] = make_image(all, all->args->so_text);
-	wall[1] = make_image(all, all->args->no_text);
-	wall[2] = make_image(all, all->args->we_text);
-	wall[3] = make_image(all, all->args->ea_text);
-	precalc_drawing(all, wall);
+	precalc_drawing(all, all->wall);
 	prep_sprites(all);
 	if (all->save == 0)
 	{
@@ -77,11 +74,21 @@ t_sprite	*parse_sprites(t_config *all)
 	return (arr);
 }
 
+static void	prep_images(t_config *all)
+{
+	all->spr = parse_sprites(all);
+	all->wall[0] = make_image(all, all->args->so_text);
+	all->wall[1] = make_image(all, all->args->no_text);
+	all->wall[2] = make_image(all, all->args->we_text);
+	all->wall[3] = make_image(all, all->args->ea_text);
+	all->wall[4] = make_image(all, all->args->sprite);
+}
+
 void		start(t_config *all, char *argv)
 {
 	start_parsing(argv, all);
-	all->spr = parse_sprites(all);
 	init_window(all);
+	prep_images(all);
 	start_drawing(all);
 	if (all->save == 1)
 		make_bmp(all);
