@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 15:22:21 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/10 17:07:33 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/12 17:31:55 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		calc_wall(t_config *all, float dist, int x, t_win *win)
 	float	end_wall;
 
 	res_y = (float)all->args->res_y;
-	dist = (dist < 0.1) ? 0.1 : dist;
+	dist = (dist < 0.01) ? 0.01 : dist;
 	height = all->d / dist;
 	if ((start_wall = res_y / 2 - height / 2) < 0)
 		start_wall = 0;
