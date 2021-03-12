@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:06:20 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 17:20:16 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/12 16:58:36 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ static int	check_commas(char *line, char id)
 			while (in_set("0123456789", line[i]))
 				i++;
 		}
-		else if (line[i] == ',' && d_f == 1)
+		else if (in_set("0123456789", line[i]) && d_f == 1)
+			return (ERROR);
+		if (line[i] == ',' && d_f == 1)
 			d_f = 0;
 		else if (line[i] == ',' && d_f == 0)
 			return (ERROR);
