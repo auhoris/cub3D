@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:07:55 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/11 18:00:22 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/12 17:24:51 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			parse_resol(t_config *all, char **split)
 	{
 		str = -1;
 		while (split[i][++str] != '\0')
-			if (!in_set("-+0123456789", split[i][str]))
+			if (!in_set("0123456789", split[i][str]))
 				return (ERROR);
 	}
 	set_x(all, split);
