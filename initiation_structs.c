@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:17:42 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 20:49:55 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:42:04 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_player(t_player *player)
 	player->y = -1;
 }
 
-void	init_all(t_config *all)
+void	init_all(t_cub *all)
 {
 	all->spr = NULL;
 	all->d = 0;

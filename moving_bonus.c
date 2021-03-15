@@ -6,13 +6,13 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:48:02 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/12 17:36:02 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:46:51 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	moving_up_down(int keycode, t_config *all)
+void	moving_up_down(int keycode, t_cub *all)
 {
 	t_floatp	st;
 	t_floatp	pl;
@@ -37,7 +37,7 @@ void	moving_up_down(int keycode, t_config *all)
 	}
 }
 
-void	moving_left_right(int keycode, t_config *all)
+void	moving_left_right(int keycode, t_cub *all)
 {
 	t_floatp	st;
 	t_floatp	pl;
@@ -62,10 +62,10 @@ void	moving_left_right(int keycode, t_config *all)
 	}
 }
 
-int		moving(int keycode, t_config *all)
+int		moving(int keycode, t_cub *all)
 {
 	if (keycode == ESC_KEY)
-		exit(0);
+		exit_clean(all);
 	if (keycode == TURN_LEFT_KEY)
 	{
 		all->player->dir -= 0.1;

@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:16:07 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/10 19:57:50 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:41:55 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			first_one(char *str)
 	return (i);
 }
 
-t_floatp	horizontal_hit(t_config *all, t_floatp fp, float pl_a)
+t_floatp	horizontal_hit(t_cub *all, t_floatp fp, float pl_a)
 {
 	t_floatp	hit;
 	int			y;
@@ -44,7 +44,7 @@ t_floatp	horizontal_hit(t_config *all, t_floatp fp, float pl_a)
 	return (hit);
 }
 
-t_floatp	vertical_hit(t_config *all, t_floatp fp, float pl_a)
+t_floatp	vertical_hit(t_cub *all, t_floatp fp, float pl_a)
 {
 	t_floatp	hit;
 	int			x;

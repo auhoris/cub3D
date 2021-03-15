@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 20:39:58 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/05 21:52:06 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 20:13:30 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static int	count_size(t_config *all, int fd)
+static int	count_size(t_cub *all, int fd)
 {
 	int		j;
 	char	*line;
@@ -39,24 +39,24 @@ static int	count_size(t_config *all, int fd)
 	return (all->size > 8 ? OK : ERROR);
 }
 
-void		start_parsing(char *file, t_config *all)
+void		start_parsing(char *file, t_cub *all)
 {
 	int	fd;
 	int	e_code;
 
 	if ((e_code = check_file(file)) != OK)
-		print_error(all, e_code);
+		print_error(all);
 	if ((fd = open(file, O_RDONLY)) == ERROR)
-		print_error(all, ERROR);
+		print_error(all);
 	if ((e_code = count_size(all, fd)) != OK)
-		print_error(all, e_code);
+		print_error(all);
 	close(fd);
 	fd = open(file, O_RDONLY);
 	if ((e_code = take_content(all, fd)) != OK)
-		print_error(all, e_code);
+		print_error(all);
 	close(fd);
 	if ((e_code = parsing_parameters(all)) != OK)
-		print_error(all, e_code);
+		print_error(all);
 	if ((e_code = parse_map(all)) != OK)
-		print_error(all, e_code);
+		print_error(all);
 }

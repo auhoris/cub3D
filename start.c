@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 15:19:15 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/10 16:37:45 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 20:33:28 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-static void	init_window(t_config *all)
+static void	init_window(t_cub *all)
 {
 	t_win	win;
 
@@ -27,7 +27,7 @@ static void	init_window(t_config *all)
 	all->win = &win;
 }
 
-void		start_drawing(t_config *all)
+void		start_drawing(t_cub *all)
 {
 	t_win	*win;
 	t_win	sprite;
@@ -48,7 +48,7 @@ void		start_drawing(t_config *all)
 	}
 }
 
-t_sprite	*parse_sprites(t_config *all)
+t_sprite	*parse_sprites(t_cub *all)
 {
 	t_sprite	*arr;
 	t_point		p;
@@ -74,7 +74,7 @@ t_sprite	*parse_sprites(t_config *all)
 	return (arr);
 }
 
-static void	prep_images(t_config *all)
+static void	prep_images(t_cub *all)
 {
 	all->spr = parse_sprites(all);
 	all->wall[0] = make_image(all, all->args->so_text);
@@ -84,7 +84,7 @@ static void	prep_images(t_config *all)
 	all->wall[4] = make_image(all, all->args->sprite);
 }
 
-void		start(t_config *all, char *argv)
+void		start(t_cub *all, char *argv)
 {
 	start_parsing(argv, all);
 	init_window(all);
@@ -93,6 +93,6 @@ void		start(t_config *all, char *argv)
 	if (all->save == 1)
 		make_bmp(all);
 	mlx_hook(all->win->win, 2, (1L << 0), moving, all);
-	mlx_hook(all->win->win, 17, (1L << 0), mouse, all);
+	mlx_hook(all->win->win, 17, 0, mouse, all);
 	mlx_loop(all->win->mlx);
 }

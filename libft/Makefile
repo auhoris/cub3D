@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 15:29:16 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/09 19:48:21 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/15 14:10:12 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,13 +43,13 @@ RM	= rm -f
 
 NAME	= libft.a
 
-$(OBJ_DIR)%.o: %.c
+$(OBJ_DIR)%.o: %.c Makefile $(HDR)
 	@mkdir -p $(OBJ_DIR)
 	gcc ${CFLAGS} -c $< -o $@ -I ${HDR}
 
 
-$(NAME): ${OBJS} $(HDR)
-	ar rc $(NAME) ${OBJS}
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
 bonus: $(OBJS_B) $(OBJS)

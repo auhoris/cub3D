@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/26 13:39:35 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/09 20:02:38 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/15 14:11:59 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,11 @@ RM	= rm -f
 
 NAME	= gnl.a
 
-$(OBJDIR)%.o: %.c
+$(OBJDIR)%.o: %.c $(HDR) Makefile
 	mkdir -p $(OBJDIR)
 	gcc $(CFLAGS) -c $< -o $@ -I $(HDR)
 
-$(NAME): $(OBJS) $(HDR)
+$(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 all: $(NAME)

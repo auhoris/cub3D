@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 18:16:12 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 20:01:53 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 20:56:18 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_config	all;
+	t_cub		all;
 	t_args		params;
 	t_player	player;
 

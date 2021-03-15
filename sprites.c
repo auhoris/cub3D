@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:53:56 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/11 17:35:54 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 20:56:26 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static void		set_distance(t_config *all, t_floatp pl)
+static void		set_distance(t_cub *all, t_floatp pl)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ static void		set_distance(t_config *all, t_floatp pl)
 	}
 }
 
-static void		handle_drawing(t_config *all,
+static void		handle_drawing(t_cub *all,
 		t_sprite arr, float mid_s, float res_y)
 {
 	int		start;
@@ -55,7 +55,7 @@ static void		handle_drawing(t_config *all,
 	}
 }
 
-static void		draw_sprites(t_config *all, t_sprite arr, float obj_angle)
+static void		draw_sprites(t_cub *all, t_sprite arr, float obj_angle)
 {
 	int		clr;
 	float	mid_s;
@@ -69,7 +69,7 @@ static void		draw_sprites(t_config *all, t_sprite arr, float obj_angle)
 		handle_drawing(all, arr, mid_s, res_y);
 }
 
-void			prep_sprites(t_config *all)
+void			prep_sprites(t_cub *all)
 {
 	t_floatp	pl;
 	int			i;
@@ -93,5 +93,6 @@ void			prep_sprites(t_config *all)
 			draw_sprites(all, all->spr[i], obj_angle);
 		}
 	}
-	ft_free(all->z_buffer);
+	free(all->z_buffer);
+	all->z_buffer = NULL;
 }

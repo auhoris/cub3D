@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 17:07:55 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/12 17:24:51 by auhoris          ###   ########.fr       */
+/*   Created: 2021/03/15 19:45:35 by auhoris           #+#    #+#             */
+/*   Updated: 2021/03/15 19:45:37 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft/libft.h"
 #include <stdio.h>
 
-static int	set_y(t_config *all, char **split)
+static int	set_y(t_cub *all, char **split)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ static int	set_y(t_config *all, char **split)
 	return (OK);
 }
 
-static int	set_x(t_config *all, char **split)
+static int	set_x(t_cub *all, char **split)
 {
 	int	i;
 
@@ -52,7 +52,7 @@ static int	set_x(t_config *all, char **split)
 	return (OK);
 }
 
-int			parse_resol(t_config *all, char **split)
+int			parse_resol(t_cub *all, char **split)
 {
 	int	i;
 	int	str;

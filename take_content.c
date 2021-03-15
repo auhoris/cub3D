@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:00:00 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 17:00:01 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:44:34 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	empty_lines_in_map(char *line)
 	return (OK);
 }
 
-static int	fill_content(t_config *all, char *line)
+static int	fill_content(t_cub *all, char *line)
 {
 	static int	i;
 	int			j;
@@ -44,7 +44,7 @@ static int	fill_content(t_config *all, char *line)
 	return (OK);
 }
 
-int			take_content(t_config *all, int fd)
+int			take_content(t_cub *all, int fd)
 {
 	char	*line;
 	int		gnl;

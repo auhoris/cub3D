@@ -6,13 +6,13 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:10:41 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 17:23:16 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:43:25 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	set_width(t_config *all)
+int	set_width(t_cub *all)
 {
 	int	width;
 	int	y;
@@ -25,7 +25,7 @@ int	set_width(t_config *all)
 	return (width);
 }
 
-int	ulb(t_config *all, int x, int flag)
+int	ulb(t_cub *all, int x, int flag)
 {
 	int	y;
 
@@ -45,7 +45,7 @@ int	ulb(t_config *all, int x, int flag)
 	}
 }
 
-int	rbd(t_config *all, int y, int flag)
+int	rbd(t_cub *all, int y, int flag)
 {
 	int	x;
 

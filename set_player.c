@@ -6,13 +6,13 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:34:23 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 17:34:32 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:45:09 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	set_playerdir(t_config *all)
+static void	set_playerdir(t_cub *all)
 {
 	char	dir;
 
@@ -28,7 +28,7 @@ static void	set_playerdir(t_config *all)
 		all->player->dir = TWO_PI;
 }
 
-int			set_playerpos(t_config *config)
+int			set_playerpos(t_cub *config)
 {
 	t_point	p;
 	int		pldup_f;

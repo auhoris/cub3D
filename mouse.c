@@ -6,16 +6,15 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 18:49:27 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 18:49:29 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 20:34:02 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <stdlib.h>
 
-int	mouse(int keycode, t_config *all)
+int	mouse(t_cub *all)
 {
-	if (keycode < 0)
-		exit(0);
+	exit_clean(all);
 	return (OK);
 }

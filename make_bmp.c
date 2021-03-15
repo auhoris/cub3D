@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 15:11:56 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/05 21:06:15 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:42:24 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <sys/fcntl.h>
 #include <unistd.h>
 
-static void	put_pixels_to_file(t_config *all, int fd)
+static void	put_pixels_to_file(t_cub *all, int fd)
 {
 	int	x;
 	int	y;
@@ -29,7 +29,7 @@ static void	put_pixels_to_file(t_config *all, int fd)
 	}
 }
 
-static void	get_info_header(t_config *all, int fd)
+static void	get_info_header(t_cub *all, int fd)
 {
 	char	bmp_infoheader[BMP_INFO_H];
 	int		i;
@@ -56,7 +56,7 @@ static void	get_info_header(t_config *all, int fd)
 	write(fd, bmp_infoheader, BMP_INFO_H);
 }
 
-void		make_bmp(t_config *all)
+void		make_bmp(t_cub *all)
 {
 	int		fd;
 	char	bmp_header[BMP_HEADER];

@@ -6,13 +6,13 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 15:22:21 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/12 17:31:55 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:46:10 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void		calc_wall(t_config *all, float dist, int x, t_win *win)
+static void		calc_wall(t_cub *all, float dist, int x, t_win *win)
 {
 	float	height;
 	float	res_y;
@@ -30,7 +30,7 @@ static void		calc_wall(t_config *all, float dist, int x, t_win *win)
 	draw_wall(all, win, height, x);
 }
 
-static float	calc_distance(t_config *all,
+static float	calc_distance(t_cub *all,
 		t_floatp hor_hit, t_floatp ver_hit, t_floatp fp)
 {
 	float	dist_v;
@@ -45,7 +45,7 @@ static float	calc_distance(t_config *all,
 	return (dist_h < dist_v ? dist_h : dist_v);
 }
 
-static void		handle_calc_wall(t_config *all, int x, t_win wall[])
+static void		handle_calc_wall(t_cub *all, int x, t_win wall[])
 {
 	if (all->hit == 0 && (all->ra > PI))
 		calc_wall(all, all->z_buffer[x], x, &wall[1]);
@@ -57,7 +57,7 @@ static void		handle_calc_wall(t_config *all, int x, t_win wall[])
 		calc_wall(all, all->z_buffer[x], x, &wall[3]);
 }
 
-void			precalc_drawing(t_config *all, t_win wall[])
+void			precalc_drawing(t_cub *all, t_win wall[])
 {
 	t_floatp	fp;
 	int			x;

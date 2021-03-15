@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:09:48 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/10 19:57:27 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:45:53 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <sys/_types/_errno_t.h>
 
-static int		validate_symbols(t_config *all)
+static int		validate_symbols(t_cub *all)
 {
 	int	x;
 	int	y;
@@ -38,7 +38,7 @@ static int		validate_symbols(t_config *all)
 	return (OK);
 }
 
-static int		flood_fill(t_config *all, char **map, int x, int y)
+static int		flood_fill(t_cub *all, char **map, int x, int y)
 {
 	if (map[y][x] != '1' && (map[y][x] == '0' || in_set("NESW", map[y][x])))
 	{
@@ -57,7 +57,7 @@ static int		flood_fill(t_config *all, char **map, int x, int y)
 	return (OK);
 }
 
-static char		**map_copy(t_config *all)
+static char		**map_copy(t_cub *all)
 {
 	int		i;
 	char	**copy;
@@ -77,7 +77,7 @@ static char		**map_copy(t_config *all)
 	return (copy);
 }
 
-static int		check_closed(t_config *all, char **copy)
+static int		check_closed(t_cub *all, char **copy)
 {
 	int	x;
 	int	y;
@@ -105,7 +105,7 @@ static int		check_closed(t_config *all, char **copy)
 	return (OK);
 }
 
-int				parse_map(t_config *all)
+int				parse_map(t_cub *all)
 {
 	int		e_code;
 	char	**copy;

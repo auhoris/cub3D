@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:00:47 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/05 21:53:33 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:44:46 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*handle_texture(char *line, char *text)
 	return ((new_line = ft_strtrim(line, " ")) == NULL ? NULL : new_line);
 }
 
-static int	parse_other(t_config *all, char **split, char *line)
+static int	parse_other(t_cub *all, char **split, char *line)
 {
 	int	hold_error;
 
@@ -36,9 +36,9 @@ static int	parse_other(t_config *all, char **split, char *line)
 			(all->args->res_x == -1 || all->args->res_y == -1))
 		hold_error = parse_resol(all, split);
 	else if (ft_strnstr("C", split[0], 1) && all->args->ceil_c == -1)
-		hold_error = parse_ceil_floor(all, split, 'C');
+		hold_error = parse_ceil_floor(all, 'C');
 	else if (ft_strnstr("F", split[0], 1) && all->args->floor_c == -1)
-		hold_error = parse_ceil_floor(all, split, 'F');
+		hold_error = parse_ceil_floor(all, 'F');
 	else if (!ft_strncmp("S", line, 1) && all->args->sprite == NULL)
 	{
 		if ((all->args->sprite = handle_texture(line, "S")) == NULL)
@@ -49,7 +49,7 @@ static int	parse_other(t_config *all, char **split, char *line)
 	return (hold_error);
 }
 
-static int	parse_textures(t_config *all, char *line)
+static int	parse_textures(t_cub *all, char *line)
 {
 	while (*line == ' ')
 		line++;
@@ -78,7 +78,7 @@ static int	parse_textures(t_config *all, char *line)
 	return (OK);
 }
 
-int			parsing_parameters(t_config *all)
+int			parsing_parameters(t_cub *all)
 {
 	char	**split;
 	int		i;

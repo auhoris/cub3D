@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 12:25:08 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/09 14:11:58 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:43:02 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	*spaces(char *dst, char *src, int max_l)
 	return (dst);
 }
 
-void		free_content(t_config *all)
+void		free_content(t_cub *all)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ void		free_content(t_config *all)
 	}
 }
 
-int			make_map(t_config *all, char **map)
+int			make_map(t_cub *all, char **map)
 {
 	int	i;
 	int	max_l;

@@ -6,14 +6,14 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:17:52 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/06 13:51:46 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 19:41:31 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "libft/libft.h"
 
-void	draw_ceil_floor(t_config *all, float start, float end, int x)
+void	draw_ceil_floor(t_cub *all, float start, float end, int x)
 {
 	float	y;
 
@@ -31,7 +31,7 @@ void	draw_ceil_floor(t_config *all, float start, float end, int x)
 	}
 }
 
-t_text	fix_text(t_config *all, t_win *img, t_text text)
+t_text	fix_text(t_cub *all, t_win *img, t_text text)
 {
 	text.tx = all->hit == 0 ? all->inter.x -
 		(int)all->inter.x : all->inter.y - (int)all->inter.y;
@@ -44,7 +44,7 @@ t_text	fix_text(t_config *all, t_win *img, t_text text)
 	return (text);
 }
 
-void	draw_wall(t_config *all,
+void	draw_wall(t_cub *all,
 		t_win *img, float h, int x)
 {
 	t_text	text;
