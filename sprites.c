@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:53:56 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 20:56:26 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:34:07 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void		handle_drawing(t_cub *all,
 	t_win	img;
 	int		clr;
 
-	img = all->wall[4];
+	img = *all->wall[4];
 	start = (res_y - arr.s_h) / 2.0 < 0 ? 0 : (res_y - arr.s_h) / 2.0;
 	end = (res_y + arr.s_h) / 2.0 > res_y ? res_y : (res_y + arr.s_h) / 2.0;
 	arr.s_off = arr.s_h > res_y ? (arr.s_h - res_y) / 2.0 : 0;
@@ -57,7 +57,6 @@ static void		handle_drawing(t_cub *all,
 
 static void		draw_sprites(t_cub *all, t_sprite arr, float obj_angle)
 {
-	int		clr;
 	float	mid_s;
 	float	res_y;
 
@@ -89,7 +88,7 @@ void			prep_sprites(t_cub *all)
 		{
 			all->spr[i].s_h = all->d / all->spr[i].dist;
 			all->spr[i].s_w = all->spr[i].s_h /
-				((float)all->wall[4].img_height / all->wall[4].img_width);
+				((float)all->wall[4]->img_height / all->wall[4]->img_width);
 			draw_sprites(all, all->spr[i], obj_angle);
 		}
 	}

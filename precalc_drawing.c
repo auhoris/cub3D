@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 15:22:21 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:46:10 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:54:14 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,19 @@ static float	calc_distance(t_cub *all,
 	return (dist_h < dist_v ? dist_h : dist_v);
 }
 
-static void		handle_calc_wall(t_cub *all, int x, t_win wall[])
+static void		handle_calc_wall(t_cub *all, int x, t_win **wall)
 {
 	if (all->hit == 0 && (all->ra > PI))
-		calc_wall(all, all->z_buffer[x], x, &wall[1]);
+		calc_wall(all, all->z_buffer[x], x, wall[1]);
 	else if (all->hit == 0 && (all->ra < PI))
-		calc_wall(all, all->z_buffer[x], x, &wall[0]);
+		calc_wall(all, all->z_buffer[x], x, wall[0]);
 	else if (all->hit == 1 && (all->ra > PI_2 && all->ra < PI3_2))
-		calc_wall(all, all->z_buffer[x], x, &wall[2]);
+		calc_wall(all, all->z_buffer[x], x, wall[2]);
 	else
-		calc_wall(all, all->z_buffer[x], x, &wall[3]);
+		calc_wall(all, all->z_buffer[x], x, wall[3]);
 }
 
-void			precalc_drawing(t_cub *all, t_win wall[])
+void			precalc_drawing(t_cub *all, t_win *wall[])
 {
 	t_floatp	fp;
 	int			x;

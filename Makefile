@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/23 18:13:38 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/15 21:01:54 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/15 22:18:47 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,10 @@ OBJ				= $(SRCS:.c=.o)
 OBJS			= $(addprefix $(OBJRID), $(OBJ))
 
 
-#CFLAGS			= -Wall -Werror -Wextra
-CFLAGS			= -Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS			= -Wall -Werror -Wextra
+#CFLAGS			= -Wall -Werror -Wextra -fsanitize=address
 MLX_FLAGS		= -framework OpenGL -framework AppKit
-OPTFLAGS		= -O3
+OPTFLAGS		=
 LEAKFLAGS		= -ggdb3 -std=c11
 
 
@@ -71,7 +71,7 @@ $(NAME):		$(OBJS) $(LIBS)
 
 $(OBJRID)%.o:	%.c $(CUB_H) Makefile
 				@mkdir -p $(OBJRID)
-				gcc $(OPTFLAGS) -MMD -c $< -o $@
+				gcc $(CFLAGS) $(OPTFLAGS) -MMD -c $< -o $@
 
 
 clean:

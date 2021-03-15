@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:34:23 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:45:09 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:57:09 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static void	set_playerdir(t_cub *all)
 	if (dir == 'N')
 		all->player->dir = PI3_2;
 	if (dir == 'S')
-		all->player->dir = PI_2;
+		all->player->dir = PI_2 + PI / 4;
 	if (dir == 'W')
 		all->player->dir = PI;
 	if (dir == 'E')
-		all->player->dir = TWO_PI;
+		all->player->dir = TWO_PI + PI / 4;
 }
 
 int			set_playerpos(t_cub *config)

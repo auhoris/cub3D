@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:00:00 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:44:34 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:27:23 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static int	fill_content(t_cub *all, char *line)
 {
 	static int	i;
 	int			j;
-	int			k;
 
 	j = -1;
 	while (line[++j] == ' ')

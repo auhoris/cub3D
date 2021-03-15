@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:17:04 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 21:03:30 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:33:37 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ static void	free_all(t_cub *all, int f)
 	free_check(all->spr);
 	if (f == 1)
 	{
-		mlx_check_destroy(all->win->mlx, all->wall[0].img);
-		mlx_check_destroy(all->win->mlx, all->wall[1].img);
-		mlx_check_destroy(all->win->mlx, all->wall[2].img);
-		mlx_check_destroy(all->win->mlx, all->wall[3].img);
-		mlx_check_destroy(all->win->mlx, all->wall[4].img);
+		mlx_check_destroy(all->win->mlx, all->wall[0]->img);
+		mlx_check_destroy(all->win->mlx, all->wall[1]->img);
+		mlx_check_destroy(all->win->mlx, all->wall[2]->img);
+		mlx_check_destroy(all->win->mlx, all->wall[3]->img);
+		mlx_check_destroy(all->win->mlx, all->wall[4]->img);
 		if (all->win)
 			mlx_destroy_window(all->win->mlx, all->win->win);
 		free_check(all->win->mlx);

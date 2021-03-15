@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:06:20 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:44:54 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:29:01 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ int			parse_ceil_floor(t_cub *all, char id)
 	int		n;
 	int		color;
 	char	*line;
-	char	**split;
 
 	line = NULL;
 	n = find_line(all, id);
@@ -122,7 +121,7 @@ int			parse_ceil_floor(t_cub *all, char id)
 		ft_free(line);
 		return (ERROR);
 	}
-	if ((color = make_color(all, line)) == ERROR)
+	if ((color = make_color(line)) == ERROR)
 	{
 		ft_free(line);
 		return (ERROR);

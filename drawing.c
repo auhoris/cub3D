@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:17:52 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:41:31 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:47:32 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	draw_wall(t_cub *all,
 	text = fix_text(all, img, text);
 	while (start < end)
 	{
-		text.clr = get_color(img, text.tx, text.ty);
+		text.clr = get_color(img, (int)text.tx, (int)text.ty);
 		if (text.clr != 0)
 			pixel_put(all->win, x, start, text.clr);
 		text.ty += text.ty_step;

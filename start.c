@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 15:19:15 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 20:33:28 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:44:20 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,21 @@
 
 static void	init_window(t_cub *all)
 {
-	t_win	win;
+	t_win	*win;
 
-	win.mlx = mlx_init();
-	win.win = mlx_new_window(win.mlx,
+	win = malloc(sizeof(*win));
+	win->mlx = mlx_init();
+	win->win = mlx_new_window(win->mlx,
 			all->args->res_x, all->args->res_y, "CUB3D");
-	win.img = mlx_new_image(win.mlx, all->args->res_x, all->args->res_y);
-	win.addres = mlx_get_data_addr(win.img,
-			&win.bbp, &win.line_length, &win.endian);
-	all->win = &win;
+	win->img = mlx_new_image(win->mlx, all->args->res_x, all->args->res_y);
+	win->addres = mlx_get_data_addr(win->img,
+			&win->bbp, &win->line_length, &win->endian);
+	all->win = win;
 }
 
 void		start_drawing(t_cub *all)
 {
 	t_win	*win;
-	t_win	sprite;
-	t_win	wall[4];
 
 	win = all->win;
 	win->img = mlx_new_image(win->mlx, all->args->res_x, all->args->res_y);
@@ -54,7 +53,7 @@ t_sprite	*parse_sprites(t_cub *all)
 	t_point		p;
 
 	arr = NULL;
-	if ((arr = malloc(sizeof(*arr) * all->sprites)) == NULL)
+	if ((arr = (t_sprite *)malloc(sizeof(*arr) * (all->sprites + 1))) == NULL)
 		return (NULL);
 	p.y = -1;
 	all->sprites = 0;

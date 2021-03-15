@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:16:07 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 21:01:21 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:28:31 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	handle_checking(char **split)
 	return (OK);
 }
 
-int			make_color(t_cub *all, char *line)
+int			make_color(char *line)
 {
 	int		i;
 	int		rgb[3];

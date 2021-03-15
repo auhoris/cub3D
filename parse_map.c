@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:09:48 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:45:53 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:27:54 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static int		check_closed(t_cub *all, char **copy)
 			if (copy[y][x] == '0' || copy[y][x] == '2')
 			{
 				if (y == all->map_h - 1 || y == 0 ||
-						x == ft_strlen(all->map[y]) - 1 || x == 0)
+						x == (int)ft_strlen(all->map[y]) - 1 || x == 0)
 					return (ERROR);
 				if (!in_set("012NESW", copy[y][x + 1])
 						|| !in_set("012NESW", copy[y][x - 1]))

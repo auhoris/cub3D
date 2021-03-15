@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:06:18 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 21:01:42 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 22:04:27 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ typedef struct	s_player
 
 typedef struct	s_config
 {
-	t_win		wall[5];
+	t_win		**wall;
 	t_sprite	*spr;
 	float		d;
 	int			max_l;
@@ -161,7 +161,7 @@ int				set_playerpos(t_cub *config);
 void			start_drawing(t_cub *config);
 int				mouse(t_cub *all);
 int				moving(int keycode, t_cub *config);
-void			precalc_drawing(t_cub *all, t_win wall[]);
+void			precalc_drawing(t_cub *all, t_win *wall[]);
 t_floatp		horizontal_hit(t_cub *all, t_floatp fp, float pl_a);
 t_floatp		vertical_hit(t_cub *all, t_floatp fp, float pl_a);
 void			print_error(t_cub *all);
@@ -177,10 +177,10 @@ void			quicksort(t_sprite *arr, int low, int high);
 int				set_width(t_cub *all);
 int				ulb(t_cub *all, int x, int flag);
 int				rbd(t_cub *all, int y, int flag);
-int				make_color(t_cub *all, char *line);
+int				make_color(char *line);
 void			ft_clear(char ***array);
 float			kostil(float a_x, float a_y, t_floatp pl);
-t_win			make_image(t_cub *all, char *file);
+t_win			*make_image(t_cub *all, char *file);
 float			fix_angle(float pl_a, float lower, float upper);
 char			**set_array_to_null(int size);
 void			pixel_put(t_win *win, int x, int y, int color);

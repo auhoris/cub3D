@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:10:41 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:43:25 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:30:00 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	set_width(t_cub *all)
 	width = 0;
 	y = -1;
 	while (++y < all->map_h)
-		if (width < ft_strlen(all->map[y]))
+		if (width < (int)ft_strlen(all->map[y]))
 			width = ft_strlen(all->map[y]);
 	return (width);
 }

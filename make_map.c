@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 12:25:08 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:43:02 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:29:32 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*spaces(char *dst, char *src, int max_l)
 	char	*tmp;
 
 	d = -1;
-	while (++d < max_l - ft_strlen(src))
+	while (++d < max_l - (int)ft_strlen(src))
 	{
 		tmp = dst;
 		if ((dst = ft_strjoin(dst, " ")) == NULL)
@@ -59,7 +59,7 @@ int			make_map(t_cub *all, char **map)
 	{
 		if ((all->map[i] = ft_strdup(map[i])) == NULL)
 			return (ERROR);
-		max_l = max_l < ft_strlen(map[i]) ? ft_strlen(map[i]) : max_l;
+		max_l = max_l < (int)ft_strlen(map[i]) ? ft_strlen(map[i]) : max_l;
 	}
 	all->max_l = max_l;
 	i = -1;
