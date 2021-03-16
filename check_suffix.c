@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:59:36 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/03 16:59:38 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:25:37 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,17 @@
 int	check_file(char *file)
 {
 	int	i;
+	int	dot_c;
 
 	i = -1;
-	while (file[++i] != '.')
-		;
+	dot_c = 0;
+	while (file[++i])
+		if (file[i] == '.')
+			dot_c++;
+	i = -1;
+	while (dot_c > 0)
+		if (file[++i] == '.')
+			dot_c--;
 	i++;
 	if (ft_strlen(&file[i]) != 3)
 		return (ERROR);

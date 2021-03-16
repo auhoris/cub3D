@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 18:16:12 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 20:56:18 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:27:20 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ int	main(int argc, char **argv)
 	all.player = &player;
 	if (argc == 2 || argc == 3)
 	{
-		if (argc == 3 && !ft_strncmp("--save", argv[2], ft_strlen(argv[2])))
-			all.save = 1;
-		else if (argc == 3 && ft_strncmp("--save", argv[2], ft_strlen(argv[2])))
+		if (argc == 3 && ft_strlen(argv[2]) == 6)
 		{
-			ft_putendl_fd("Error\nInvalid arguments", 2);
-			exit(1);
+			if (!ft_strncmp("--save", argv[2], 6))
+				all.save = 1;
 		}
+		else if (argc == 3 && ft_strlen(argv[2]) != 6)
+			print_error(&all);
 		start(&all, argv[1]);
 	}
 	else

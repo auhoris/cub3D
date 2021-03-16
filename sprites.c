@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:53:56 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 21:34:07 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/16 19:18:54 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void			prep_sprites(t_cub *all)
 		obj_angle = atan2f(sinf(all->player->dir), cosf(all->player->dir))
 			- atan2f(all->spr[i].y - pl.y, all->spr[i].x - pl.x);
 		obj_angle = fix_angle(obj_angle, -PI, PI);
-		if (fabsf(obj_angle) < (FOV / 1.3) && all->spr[i].dist > 0.1f)
+		if (fabsf(obj_angle) < (FOV / 1.3) && all->spr[i].dist > 0.001f)
 		{
 			all->spr[i].s_h = all->d / all->spr[i].dist;
 			all->spr[i].s_w = all->spr[i].s_h /

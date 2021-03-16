@@ -6,11 +6,12 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:00:00 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 21:27:23 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/16 16:43:35 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "libft/libft.h"
 
 static int	empty_lines_in_map(char *line)
 {
@@ -20,10 +21,10 @@ static int	empty_lines_in_map(char *line)
 	j = -1;
 	while (line[++j] == ' ')
 		;
-	if (digit_f == 1 && line[j] == '\0')
-		return (ERROR);
-	if (in_set("0123", line[j]))
+	if (in_set("012", line[j]))
 		digit_f = 1;
+	if (digit_f == 1 && !ft_strlen(line))
+		return (ERROR);
 	return (OK);
 }
 

@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:17:42 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 22:06:38 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/16 13:45:21 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ void	init_player(t_player *player)
 
 void	init_all(t_cub *all)
 {
-	int	i;
-	
-	i = -1;
-	all->wall = (t_win **)malloc(sizeof(t_win *) * (5));
-	while (++i < 5){
-		all->wall[i] = malloc(sizeof(t_win));
-	}
 	all->spr = NULL;
 	all->d = 0;
 	all->max_l = 0;

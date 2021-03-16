@@ -6,7 +6,7 @@
 #    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/23 18:13:38 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/15 22:18:47 by auhoris          ###   ########.fr        #
+#    Updated: 2021/03/16 17:53:34 by auhoris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS			= main.c take_content.c parsing_parameters.c \
 				  checking_config.c utils_pt1.c initiation_structs.c \
 				  utils_pt2.c set_player.c moving_bonus.c \
 				  drawing.c ft_free.c parse_resol_sprite.c \
-				  print_error.c parse_map.c make_image.c \
+				  exit_clean.c parse_map.c make_image.c \
 				  sprites.c hits.c mouse.c \
 				  utils_pt3.c make_map.c make_bmp.c \
 				  start.c precalc_drawing.c map_utils.c \

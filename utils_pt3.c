@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:16:07 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 21:28:31 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:04:27 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static int	handle_checking(char **split)
 		if (ft_strlen(&tmp[i]) > 3)
 		{
 			ft_free(tmp);
-			free_split(split);
 			return (ERROR);
 		}
 		ft_free(tmp);
