@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:17:42 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/16 13:45:21 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/17 15:48:26 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	init_player(t_player *player)
 
 void	init_all(t_cub *all)
 {
+	all->d_f = 0;
 	all->spr = NULL;
 	all->d = 0;
 	all->max_l = 0;

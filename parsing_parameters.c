@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:00:47 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:44:46 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:24:10 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static char	*handle_texture(char *line, char *text)
 	char	*new_line;
 
 	new_line = NULL;
-	while (in_set(text, *line))
+	while (in_set(text, *line) || *line == ' ')
 		line++;
-	return ((new_line = ft_strtrim(line, " ")) == NULL ? NULL : new_line);
+	return ((new_line = ft_strdup(line)) == NULL ? NULL : new_line);
 }
 
 static int	parse_other(t_cub *all, char **split, char *line)

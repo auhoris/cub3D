@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 20:39:58 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 20:13:30 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:14:56 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ static int	count_size(t_cub *all, int fd)
 	line = NULL;
 	while ((gnl = get_next_line(fd, &line)) > 0)
 	{
-		j = -1;
-		while (line[++j] == ' ')
-			;
+		j = 0;
+		while (all->d_f == 0 && line[j] == ' ')
+			j++;
+		if (line[j] == '1')
+			all->d_f = 1;
 		if (line[j] != '\0')
 			all->size++;
 		ft_free(line);
@@ -50,6 +52,7 @@ void		start_parsing(char *file, t_cub *all)
 		print_error(all);
 	if ((e_code = count_size(all, fd)) != OK)
 		print_error(all);
+	all->d_f = 0;
 	close(fd);
 	fd = open(file, O_RDONLY);
 	if ((e_code = take_content(all, fd)) != OK)

@@ -6,11 +6,12 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:34:23 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/16 13:41:16 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:31:52 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "libft/libft.h"
 
 static void	set_playerdir(t_cub *all)
 {
@@ -28,28 +29,30 @@ static void	set_playerdir(t_cub *all)
 		all->player->dir = TWO_PI;
 }
 
-int			set_playerpos(t_cub *config)
+int			set_playerpos(t_cub *all)
 {
 	t_point	p;
 	int		pldup_f;
 
 	p.y = -1;
 	pldup_f = 0;
-	while (config->map[++p.y])
+	while (all->map[++p.y])
 	{
 		p.x = -1;
-		while (config->map[p.y][++p.x])
+		while (all->map[p.y][++p.x])
 		{
-			if (in_set("NESW", config->map[p.y][p.x]))
+			if (in_set("NESW", all->map[p.y][p.x]))
 			{
-				config->player->x = (p.x + 0.5) * SCALE;
-				config->player->y = (p.y + 0.5) * SCALE;
+				if (p.x == 0 || p.x == (int)ft_strlen(all->map[p.y]) - 1)
+					return (ERROR);
+				if (p.y == 0 || p.y == all->map_h)
+					return (ERROR);
+				all->player->x = (p.x + 0.5) * SCALE;
+				all->player->y = (p.y + 0.5) * SCALE;
 				pldup_f++;
 			}
 		}
 	}
-	if (pldup_f != 1)
-		return (ERROR);
-	set_playerdir(config);
-	return (OK);
+	set_playerdir(all);
+	return (pldup_f == 1 ? OK : ERROR);
 }
