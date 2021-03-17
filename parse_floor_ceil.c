@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:06:20 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 21:29:01 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/17 20:03:20 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 
 static int	handle_check(char **split)
 {
-	int		i;
-	int		j;
+	t_point	p;
 	char	*tmp;
 
-	i = -1;
-	while (split[++i])
+	p.x = -1;
+	while (split[++p.x])
 	{
-		if ((tmp = ft_strtrim(split[i], " ")) == NULL)
+		if ((tmp = ft_strtrim(split[p.x], " ")) == NULL)
 			return (ERROR);
-		j = -1;
-		while (tmp[++j])
+		p.y = -1;
+		if (ft_strlen(tmp) == 0)
 		{
-			if (!ft_isdigit(tmp[j]))
+			ft_free(tmp);
+			return (ERROR);
+		}
+		while (tmp[++p.y])
+		{
+			if (!ft_isdigit(tmp[p.y]))
 			{
 				ft_free(tmp);
 				return (ERROR);
