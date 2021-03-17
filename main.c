@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 18:16:12 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/16 14:27:20 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:45:52 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(int argc, char **argv)
 		{
 			if (!ft_strncmp("--save", argv[2], 6))
 				all.save = 1;
+			else
+				print_error(&all);
 		}
 		else if (argc == 3 && ft_strlen(argv[2]) != 6)
 			print_error(&all);
