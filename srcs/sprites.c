@@ -6,11 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:53:56 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/16 19:18:54 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:26:10 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

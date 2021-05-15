@@ -6,12 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 23:17:42 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/17 15:48:26 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:27:40 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "mlx/mlx.h"
+#include "../includes/cub3d.h"
 #include <malloc/_malloc.h>
 #include <stdio.h>
 

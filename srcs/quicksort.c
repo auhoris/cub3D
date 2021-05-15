@@ -6,11 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 17:48:18 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/10 16:32:23 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:26:10 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 #include <stdlib.h>
 
 void	swap(t_sprite *a, t_sprite *b)

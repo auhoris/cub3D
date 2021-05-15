@@ -6,11 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:15:30 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 21:35:59 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:26:10 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 #include <stdlib.h>
 
 t_win	*make_image(t_cub *all, char *file)

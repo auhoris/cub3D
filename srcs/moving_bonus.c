@@ -6,11 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:48:02 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:46:51 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:26:10 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 
 void	moving_up_down(int keycode, t_cub *all)
 {

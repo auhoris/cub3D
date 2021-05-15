@@ -6,11 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 15:22:21 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 21:54:14 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:26:10 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cub3d.h"
 
 static void		calc_wall(t_cub *all, float dist, int x, t_win *win)
 {

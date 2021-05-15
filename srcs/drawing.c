@@ -6,12 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:17:52 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 21:47:32 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:27:28 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "libft/libft.h"
+#include "../includes/cub3d.h"
 
 void	draw_ceil_floor(t_cub *all, float start, float end, int x)
 {

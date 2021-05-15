@@ -6,7 +6,7 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:06:18 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/17 15:48:19 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:26:58 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
-# include "mlx/mlx.h"
-# include "libft/libft.h"
-# include "get_next_line/get_next_line.h"
+# include "../libs/mlx/mlx.h"
+# include "../libs/libft/libft.h"
+# include "../libs/get_next_line/get_next_line.h"
 
 # define ERROR -1
 # define OK 0

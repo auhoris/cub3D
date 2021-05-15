@@ -6,12 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:16:07 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/16 14:04:27 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:28:41 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "libft/libft.h"
+#include "../includes/cub3d.h"
 #include <sys/_types/_errno_t.h>
 
 void		free_check(void *ptr)

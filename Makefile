@@ -1,98 +1,69 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: auhoris <marvin@42.fr>                     +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/01/23 18:13:38 by auhoris           #+#    #+#              #
-#    Updated: 2021/03/17 16:09:40 by auhoris          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+# Bin
+name			= cub3D
 
-NAME			= cub3D
+# Directories
+srcdir			= srcs
+objdir			= objs
+libdir			= libs
+incdir			= includes
+gnldir			= $(libdir)/get_next_line
+libftdir		= $(libdir)/libft
+mlxdir			= $(libdir)/mlx
 
+# Files
+sources			= $(wildcard $(srcdir)/*.c)
+inclds			= $(wildcard $(incdir)/*.h)
+objects			= $(sources:$(srcdir)/%.c=$(objdir)/%.o)
 
-SRCS			= main.c take_content.c parsing_parameters.c \
-				  parse_floor_ceil.c check_suffix.c \
-				  checking_config.c utils_pt1.c initiation_structs.c \
-				  utils_pt2.c set_player.c moving_bonus.c \
-				  drawing.c ft_free.c parse_resol_sprite.c \
-				  exit_clean.c parse_map.c make_image.c \
-				  sprites.c hits.c mouse.c \
-				  utils_pt3.c make_map.c make_bmp.c \
-				  start.c precalc_drawing.c map_utils.c \
-				  quicksort.c
+# Flags and linkers
+cc				= gcc
+cflags			= -Wall -Werror -Wextra
+mlxflags		= -framework OpenGL -framework AppKit
+dbgf			= -g
+sanitize		= -fsanitize=address
 
+# Additional libraries
+libft_a			= libft.a
+gnl_a			= gnl.a
+mlx_a			= libmlx.a
+libs			= $(gnldir)/$(gnl_a) $(libftdir)/$(libft_a) $(mlxdir)/$(mlx_a)
 
-
-OBJ				= $(SRCS:.c=.o)
-OBJS			= $(addprefix $(OBJRID), $(OBJ))
-
-
-CFLAGS			= -Wall -Werror -Wextra
-#CFLAGS			= -Wall -Werror -Wextra -fsanitize=address
-MLX_FLAGS		= -framework OpenGL -framework AppKit
-OPTFLAGS		=
-LEAKFLAGS		= -ggdb3 -std=c11
+# Utils
+rm				= rm -rf
 
 
-MLX_A			= libmlx.a
-LIBFT_A			= libft.a
-GNL_A			= gnl.a
 
-
-LIBFTD			= libft/
-MLXD			= mlx/
-GNLD			= get_next_line/
-OBJRID			= objs/
-
-
-CUB_H			= cub3d.h
-LIBS			= $(GNLD)$(GNL_A) $(MLXD)$(MLX_A) $(LIBFTD)$(LIBFT_A)
-
-
-all:	 		mlx lib gnl $(NAME)
-
+all:			 mlx lib gnl $(name)
 
 gnl:
-				@make -C $(GNLD)
-
+				@make -C $(gnldir)
 lib:
-				@make -C $(LIBFTD)
-
+				@make -C $(libftdir)
 mlx:
-				@make -C $(MLXD)
+				@make -C $(mlxdir)
 
 
-$(NAME):		$(OBJS) $(LIBS)
-				gcc $(CFLAGS) $(OBJS) $(LIBS) $(MLX_FLAGS) -o $(NAME)
+$(name):		$(objects) $(libs)
+				$(cc) $(cflags) $^ $(mlxflags) -o $@
+				@echo "\033[0;32m"$@" compiled"
 
-
-$(OBJRID)%.o:	%.c $(CUB_H) Makefile
-				@mkdir -p $(OBJRID)
-				gcc $(CFLAGS) $(OPTFLAGS) -MMD -c $< -o $@
+$(objdir)/%.o	: $(srcdir)/%.c Makefile $(inclds)
+				@mkdir -p $(objdir)
+				$(cc) $(cflags) -c $< -o $@
+				@echo "Compiled "$<" successfully!"
 
 
 clean:
-				@rm -f bitmap.bmp
-				@rm -rf $(OBJRID)
-				@make -C $(GNLD) clean
-				@make -C $(MLXD) clean
-				@make -C $(LIBFTD) clean
-
+				@make -C $(gnldir) clean
+				@make -C $(libftdir) clean
+				@make -C $(mlxdir) clean
+				$(rm) $(objdir)
 fclean:			clean
-				rm -f $(NAME)
-				@make -C $(LIBFTD) fclean
-				@make -C $(GNLD) fclean
-
+				@make -C $(gnldir) fclean
+				@make -C $(libftdir) fclean
+				$(rm) $(name)
 re:				fclean all
 
 
-
-norm:
-				norminette *.c $(LIBFTD)*.c $(GNLD)*.c *.h $(LIBFTD)*.h $(GNLD)*.h
-
-.PHONY:			fclean all re clean gnl lib mlx
-
-#.SILENT: fclean clean all re $(NAME) $(OBJS) $(OBJRID)
+.PHONY:			clean fclean re all
+.SILENT:		$(name) $(objects)

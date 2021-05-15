@@ -6,12 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 17:06:20 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/17 20:03:20 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:27:49 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "libft/libft.h"
+#include "../includes/cub3d.h"
 
 static int	handle_check(char **split)
 {

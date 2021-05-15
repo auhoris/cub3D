@@ -6,12 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 19:45:35 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/15 19:45:37 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:28:02 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "libft/libft.h"
+#include "../includes/cub3d.h"
 #include <stdio.h>
 
 static int	set_y(t_cub *all, char **split)

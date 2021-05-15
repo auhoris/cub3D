@@ -6,14 +6,11 @@
 /*   By: auhoris <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 18:16:12 by auhoris           #+#    #+#             */
-/*   Updated: 2021/03/17 16:45:52 by auhoris          ###   ########.fr       */
+/*   Updated: 2021/05/15 14:27:11 by auhoris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "get_next_line/get_next_line.h"
-#include "libft/libft.h"
-#include "mlx/mlx.h"
+#include "../includes/cub3d.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
